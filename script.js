@@ -1,85 +1,85 @@
-// const personForm = document.getElementById("person-form");
+const personForm = document.getElementById("person-form");
 
-// const noOfPerson = document.querySelector(".no-of-person");
+const noOfPerson = document.querySelector(".no-of-person");
 
-// const inpForCretUser = document.querySelector(".inputForCreatePerson");
+const inpForCretUser = document.querySelector(".inputForCreatePerson");
 
-// noOfPerson.addEventListener("click",createPerson);
+noOfPerson.addEventListener("click",createPerson);
 
-// async function createPerson(){
-//     let noOfLenders =  inpForCretUser.value;
-//     console.log(noOfLenders);
-//     for(let i=1;i<=noOfLenders;i++){
-//         personForm.innerHTML += `
-//         <div class="box">
-//         <form class="personDetail">
-//         <label>Person ${i} :</label>
+async function createPerson(){
+    let noOfLenders =  inpForCretUser.value;
+    console.log(noOfLenders);
+    for(let i=1;i<=noOfLenders;i++){
+        personForm.innerHTML += `
+        <div class="box">
+        <form class="personDetail">
+        <label>Person ${i} :</label>
 
-//         <label>Enter the Name :</label>
-//         <input class="person-name inp-box" type="text" placeholder="ex : p1" ><br>
+        <label>Enter the Name :</label>
+        <input class="person-name inp-box" type="text" placeholder="ex : p1" ><br>
 
-//         <label>Enter the total Money of Lendes : </label>
-//         <input class="person-totLend inp-box" type="text" placeholder="Money" ><br>
+        <label>Enter the total Money of Lendes : </label>
+        <input class="person-totLend inp-box" type="text" placeholder="Money" ><br>
 
-//         <lable>Enter the total Money of spend :"</lable>
-//         <input class="person-acquire inp-box" type="text" placeholder="Money" >
-//         <button type="submit" class="inner-box">Insert</button>
-//         <br><br>
+        <lable>Enter the total Money of spend :"</lable>
+        <input class="person-acquire inp-box" type="text" placeholder="Money" >
+        <button type="submit" class="inner-box">Insert</button>
+        <br><br>
         
-//         </form>
-//         </div>
-//         `;
-//     }
+        </form>
+        </div>
+        `;
+    }
 
-//     // let AllDatas = await getinput();
-//   }
-  let AllDatas = [
-    // {name: 'Divakaran', lend: '400', spend: '156'},
-    // {name: 'Kavin Kumar', lend: '20', spend: '182'},
-    // {name: 'Gururaj', lend: '100', spend: '45'},
-    // {name: 'Harish', lend: '0', spend: '137'},
-    {name: 'Divakaran', lend: '400', spend: '320'},
-    {name: 'Kavin Kumar', lend: '65', spend: '200'},
-    {name: 'Gururaj', lend: '100', spend: '40'},
-    {name: 'Harish', lend: '135', spend: '140'},
-  ]
-  console.log("after getInput");
-      process(AllDatas);
+    let AllDatas = await getinput();
+// let AllDatas = [
+//   // {name: 'Divakaran', lend: '400', spend: '156'},
+//   // {name: 'Kavin Kumar', lend: '20', spend: '182'},
+//   // {name: 'Gururaj', lend: '100', spend: '45'},
+//   // {name: 'Harish', lend: '0', spend: '137'},
+//   {name: 'Divakaran', lend: '400', spend: '320'},
+//   {name: 'Kavin Kumar', lend: '65', spend: '200'},
+//   {name: 'Gururaj', lend: '100', spend: '40'},
+//   {name: 'Harish', lend: '135', spend: '140'},
+// ]
+console.log("after getInput");
+    process(AllDatas);
+  }
 
 
-// function getinput(){
-//     return new Promise((resolve, reject) => {
-//         const forms = document.querySelectorAll(".personDetail");
-//         let submitCount = 0;
-//         let allDatas = [];
+function getinput(){
+    return new Promise((resolve, reject) => {
+        const forms = document.querySelectorAll(".personDetail");
+        let submitCount = 0;
+        let allDatas = [];
     
-//         for (let i = 0; i < forms.length; i++) {
-//           forms[i].addEventListener("submit", (event) => {
-//             event.preventDefault();
-//             const formData = new FormData(forms[i]);
-//             const data = Object.fromEntries(formData.entries());
+        for (let i = 0; i < forms.length; i++) {
+          forms[i].addEventListener("submit", (event) => {
+            event.preventDefault();
+            const formData = new FormData(forms[i]);
+            const data = Object.fromEntries(formData.entries());
             
-//             const personName = document.getElementsByClassName("person-name")[i].value;
-//             const personLend = document.getElementsByClassName("person-totLend")[i].value;
-//             const personSpend = document.getElementsByClassName("person-acquire")[i].value;
+            const personName = document.getElementsByClassName("person-name")[i].value;
+            const personLend = document.getElementsByClassName("person-totLend")[i].value;
+            const personSpend = document.getElementsByClassName("person-acquire")[i].value;
     
-//             const obj = {
-//               name: personName,
-//               lend: personLend,
-//               spend: personSpend,
-//                 // detail : []
-//             };
+            const obj = {
+              name: personName,
+              lend: personLend,
+              spend: personSpend,
+                // detail : []
+            };
     
-//             allDatas.push(obj);
-//             submitCount++;
+            allDatas.push(obj);
+            submitCount++;
     
-//             if (submitCount === forms.length) {
-//               resolve(allDatas);
-//             }
-//           });
-//         }
-//       });
-//     }
+            if (submitCount === forms.length) {
+              resolve(allDatas);
+            }
+          });
+        }
+      });
+    }
 
 
 function process(AllDatas){
@@ -157,11 +157,11 @@ function process(AllDatas){
 
     console.log("wantToRecive :",wantToRecive);
 
-
+    const msg = document.getElementsByClassName("msg");
     console.log("----------");
     for(let i of wantToRecive){
       for(let j of i.tempObj.givenBy){
-        console.log(`${j.name} want to give ${j.amount} to ${i.name}`);
+        msg.textContent+=`${j.name} want to give ${j.amount} to ${i.name}`;
       }
     }
 }

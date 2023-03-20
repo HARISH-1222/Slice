@@ -30,17 +30,18 @@ async function createPerson(){
         </div>
         `;
     }
-
     let AllDatas = await getinput();
 // let AllDatas = [
-//   // {name: 'Divakaran', lend: '400', spend: '156'},
-//   // {name: 'Kavin Kumar', lend: '20', spend: '182'},
-//   // {name: 'Gururaj', lend: '100', spend: '45'},
-//   // {name: 'Harish', lend: '0', spend: '137'},
-//   {name: 'Divakaran', lend: '400', spend: '320'},
-//   {name: 'Kavin Kumar', lend: '65', spend: '200'},
-//   {name: 'Gururaj', lend: '100', spend: '40'},
-//   {name: 'Harish', lend: '135', spend: '140'},
+
+  // {name: 'Divakaran', lend: '400', spend: '156'},
+  // {name: 'Kavin Kumar', lend: '20', spend: '182'},
+  // {name: 'Gururaj', lend: '100', spend: '45'},
+  // {name: 'Harish', lend: '0', spend: '137'},
+//   {name: 'a', lend: '0', spend: '88'},
+//   {name: 'b', lend: '0', spend: '130'},
+//   {name: 'c', lend: '0', spend: '112'},
+//   {name: 'd', lend: '0', spend: '70'},
+//   {name: 'e', lend: '400', spend: '0'}
 // ]
 console.log("after getInput");
     process(AllDatas);
@@ -126,12 +127,13 @@ function process(AllDatas){
       console.log(wantToRecive[r].tempObj.balance+" "+wantToGive[g].tempObj.balance);
         let tempGive = (wantToRecive[r].tempObj.balance) + wantToGive[g].tempObj.balance;
         console.log(tempGive);
-        console.log("\n\n");
         let tempGiven = Math.abs(wantToGive[g].tempObj.balance);
         wantToGive[g].tempObj.balance = 0;
+        console.log(tempGiven);
+        console.log("\n\n");
 
         if(tempGive < 0){
-          console.log("1 : "+wantToGive[g].name+" "+wantToRecive[r].tempObj.balance);
+          console.log("1 : "+wantToGive[g].name+" "+wantToRecive[r].tempObj.balance+" to "+wantToRecive[r].name);
           wantToRecive[r].tempObj.givenBy.push({"name":wantToGive[g].name,"amount":wantToRecive[r].tempObj.balance});
           wantToGive[g].tempObj.balance = tempGive;
           wantToRecive[r].tempObj.balance = 0;
@@ -143,7 +145,7 @@ function process(AllDatas){
           tempWant=0;
           g++;
         }else{
-          wantToRecive[r].tempObj.givenBy.push({"name":wantToGive[g].name,"amount":wantToRecive[g].tempObj.balance});
+          wantToRecive[r].tempObj.givenBy.push({"name":wantToGive[g].name,"amount":tempGiven});
           wantToRecive[r].tempObj.balance = 0;
           tempWant=0;
           r++;
@@ -157,11 +159,12 @@ function process(AllDatas){
 
     console.log("wantToRecive :",wantToRecive);
 
-    const msg = document.getElementsByClassName("msg");
+    const msg = document.getElementById("msg");
     console.log("----------");
     for(let i of wantToRecive){
       for(let j of i.tempObj.givenBy){
-        msg.textContent+=`${j.name} want to give ${j.amount} to ${i.name}`;
+        msg.innerHTML += `<h3>${j.name} want to give ${j.amount} to ${i.name}</h3>`;
+        console.log(`${j.name} want to give ${j.amount} to ${i.name}`);
       }
     }
 }

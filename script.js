@@ -33,15 +33,16 @@ async function createPerson(){
     let AllDatas = await getinput();
 // let AllDatas = [
 
-  // {name: 'Divakaran', lend: '400', spend: '156'},
-  // {name: 'Kavin Kumar', lend: '20', spend: '182'},
-  // {name: 'Gururaj', lend: '100', spend: '45'},
-  // {name: 'Harish', lend: '0', spend: '137'},
-//   {name: 'a', lend: '0', spend: '88'},
-//   {name: 'b', lend: '0', spend: '130'},
-//   {name: 'c', lend: '0', spend: '112'},
-//   {name: 'd', lend: '0', spend: '70'},
-//   {name: 'e', lend: '400', spend: '0'}
+//   {name: 'A', lend: '500', spend: '750'},
+//   {name: 'B', lend: '2000', spend: '750'},
+//   {name: 'C', lend: '500', spend: '1250'},
+//   {name: 'D', lend: '1000', spend: '1750'},
+//   {name: 'E', lend: '100', spend: '100'},
+//   {name: 'F', lend: '900', spend: '1000'},
+//   {name: 'G', lend: '2500', spend: '1900'},
+//   {name: 'H', lend: '500', spend: '1250'},
+//   {name: 'I', lend: '1000', spend: '525'},
+//   {name: 'J', lend: '1000', spend: '725'}
 // ]
 console.log("after getInput");
     process(AllDatas);
@@ -106,7 +107,7 @@ function process(AllDatas){
       if(AllDatas[i].tempObj.balance > 0){
         // console.log("wantToRecive : ",AllDatas[i]);
         wantToRecive.push(AllDatas[i]);
-      }else{
+      }else if(AllDatas[i].tempObj.balance < 0){
         // console.log("wantToGive : ",AllDatas[i]);
         wantToGive.push(AllDatas[i]);
       }

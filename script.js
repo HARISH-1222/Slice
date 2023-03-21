@@ -12,17 +12,20 @@ async function createPerson(){
     for(let i=1;i<=noOfLenders;i++){
         personForm.innerHTML += `
         <div class="box">
+        <div class="box-title">
+          <h2>Person ${i} : </h2>
+        </div>
         <form class="personDetail">
         <label>Person ${i} :</label>
 
         <label>Enter the Name :</label>
-        <input class="person-name inp-box" type="text" placeholder="ex : p1" ><br>
+        <input class="person-name inp-box" type="text" placeholder="ex : p${i}" ><br>
 
         <label>Enter the total Money of Lendes : </label>
-        <input class="person-totLend inp-box" type="text" placeholder="Money" ><br>
+        <input class="person-totLend inp-box" type="number" placeholder="ex : 130" ><br>
 
         <lable>Enter the total Money of spend :"</lable>
-        <input class="person-acquire inp-box" type="text" placeholder="Money" >
+        <input class="person-acquire inp-box" type="number" placeholder="ex : 13" >
         <button type="submit" class="inner-box">Insert</button>
         <br><br>
         

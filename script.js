@@ -2,12 +2,36 @@ const personForm = document.getElementById("person-form");
 
 const noOfPerson = document.querySelector(".no-of-person");
 
+const inputBtnToMov = document.querySelector(".input-btn-to-mov");
+
 const inpForCretUser = document.querySelector(".inputForCreatePerson");
+
+inputBtnToMov.addEventListener("click",MoveImage);
+
+function MoveImage(){
+    event.preventDefault();
+    console.log("hi");
+    document.querySelector('.img-after').classList.add('Move-after-img');
+    document.querySelector('.img-before').classList.add("Move-before-img");
+    document.querySelector('.input-form').classList.add('Move-input-form');
+    document.querySelector('.content-box').classList.add('Move-content-box');
+}
+
+function totContentUpp(){
+  event.preventDefault();
+  console.log("hi");
+  document.querySelector('.img-body').classList.add('img-body-move');
+  document.querySelector('.input-form').classList.add('form-up-move');
+  document.querySelector('.content-box').classList.add('form-content-up');
+
+}
 
 noOfPerson.addEventListener("click",createPerson);
 
 async function createPerson(){
+    totContentUpp();
     let noOfLenders =  inpForCretUser.value;
+    event.preventDefault();
     console.log(noOfLenders);
     for(let i=1;i<=noOfLenders;i++){
         personForm.innerHTML += `
@@ -51,7 +75,7 @@ console.log("after getInput");
     process(AllDatas);
   }
 
-
+ 
 function getinput(){
     return new Promise((resolve, reject) => {
         const forms = document.querySelectorAll(".personDetail");

@@ -2,10 +2,11 @@
     border: 0;
     padding: 0;
     margin: 0;
+    /* border: 1px solid red; */
 }
 
 .box-top{
-    height: 100px;
+    height: 20px;
     width: 500px;
     border: 2px solid black;
 }
@@ -29,8 +30,105 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;   
+    
 }
 
 .inp-box{
     border: 1px solid black;
+}
+
+.img-body{
+    height: 70vh;
+    width: 100vw;
+    /* display: flex; */
+}
+
+.img{
+    width: 25%;
+    /* min-width: 50%;  MEDIA*/
+    border-radius: 10px;
+}
+
+.befor-slice img{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    /* margin: 4%;
+    margin-left: 70%; */
+}
+
+
+.after-slice{
+    /* top: 0;
+    left: 0; */
+}
+
+.after-slice img{
+    position: absolute;
+    bottom: 30%;
+    /* top: 10%;  */
+    right: 10%;
+}
+
+
+.input-form{
+    display:flex;
+    justify-content: center;
+    padding: 4%;
+    /* display: block; */
+    /* transform: translateY(-90%);
+    transition: 2s; */
+    /* align-items: center; */
+}
+
+.input-form form{
+    border:none;
+    
+}
+
+.Move-before-img{
+    transform: translateY(-10%);
+    transition: 2s;
+}
+
+.Move-after-img {
+    transform: translateY(-105%);
+    transition: 2s;
+}
+
+.Move-input-form {
+    transform: translateY(-125%);
+    transition: 1.5s;
+}
+
+.Move-content-box{
+    transform: translateY(-25%);
+    transition: 1.5s;
+}
+
+.img-body-move{
+    transform: translateY(-150%);
+    transition: 2s;
+}
+
+.form-up-move{
+    transform: translateY(-290%);
+    transition: 2s;
+}
+
+.form-content-up{
+    transform: translateY(-150%);
+    transition: 2s;
+}
+
+/* ------------ */
+
+@keyframes imgMov{
+    0% {
+        bottom:30%;
+    }
+    100% {
+        top:10%;
+    }
+
 }

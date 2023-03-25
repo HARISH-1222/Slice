@@ -13,23 +13,30 @@ function MoveImage(){
     console.log("hi");
     document.querySelector('.img-after').classList.add('Move-after-img');
     document.querySelector('.img-before').classList.add("Move-before-img");
-    document.querySelector('.input-form').classList.add('Move-input-form');
-    document.querySelector('.content-box').classList.add('Move-content-box');
+
+    document.querySelector('.parent-element').classList.add('Move-input-form');
+
+    // document.querySelector('.input-form').classList.add('Move-input-form');
+
+
+    // document.querySelector('.content-box').classList.add('Move-content-box');
 }
 
 function totContentUpp(){
   event.preventDefault();
   console.log("hi");
   document.querySelector('.img-body').classList.add('img-body-move');
-  document.querySelector('.input-form').classList.add('form-up-move');
-  document.querySelector('.content-box').classList.add('form-content-up');
 
+  // document.querySelector('.parent-element').classList.add('parent-element-sticky');
+  // document.querySelector('.content-box').classList.add('form-content-up');
+  
+  // document.querySelector('.parent-element').classList.add('parent-element-sticky');
 }
 
 noOfPerson.addEventListener("click",createPerson);
 
 async function createPerson(){
-    totContentUpp();
+    // totContentUpp();
     let noOfLenders =  inpForCretUser.value;
     event.preventDefault();
     console.log(noOfLenders);
@@ -71,10 +78,10 @@ async function createPerson(){
 //   {name: 'I', lend: '1000', spend: '525'},
 //   {name: 'J', lend: '1000', spend: '725'}
 // ]
+
 console.log("after getInput");
     process(AllDatas);
-  }
-
+}
  
 function getinput(){
     return new Promise((resolve, reject) => {

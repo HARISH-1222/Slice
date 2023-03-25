@@ -27,6 +27,7 @@
 }
 
 .content-box{
+    /* overflow: hidden; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;   
@@ -58,11 +59,6 @@
 }
 
 
-.after-slice{
-    /* top: 0;
-    left: 0; */
-}
-
 .after-slice img{
     position: absolute;
     bottom: 30%;
@@ -81,10 +77,6 @@
     /* align-items: center; */
 }
 
-.input-form form{
-    border:none;
-    
-}
 
 .Move-before-img{
     transform: translateY(-10%);
@@ -97,7 +89,7 @@
 }
 
 .Move-input-form {
-    transform: translateY(-125%);
+    transform: translateY(-50%);
     transition: 1.5s;
 }
 
@@ -107,11 +99,23 @@
 }
 
 .img-body-move{
+    transform: translateY(-60%);
+    transition: 2s;
+}
+
+.parent-element-sticky{
     transform: translateY(-150%);
     transition: 2s;
 }
 
-.form-up-move{
+/* .parent-element{
+    position: sticky;
+    top: 0;
+} */
+
+/* .form-up-move{
+    position: sticky;
+  top: 0;
     transform: translateY(-290%);
     transition: 2s;
 }
@@ -119,16 +123,4 @@
 .form-content-up{
     transform: translateY(-150%);
     transition: 2s;
-}
-
-/* ------------ */
-
-@keyframes imgMov{
-    0% {
-        bottom:30%;
-    }
-    100% {
-        top:10%;
-    }
-
-}
+} */
